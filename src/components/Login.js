@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import "./Login.css";
+import "../css/Login.css";
 
 class Login extends Component {
     handleChange(e) {
@@ -18,20 +18,20 @@ class Login extends Component {
             username: this.state.username.toLowerCase(),
             password: this.state.password.toLowerCase()
         }
-        this.props.checkLogin(account);
+        this.props.checkAdmin(account);
     }
 
     render() {
         return (
             <div className="login">
                 <form className="login_form" onSubmit={(e) => this.handleSubmit(e)}>
-                    <h1>Admin</h1>
+                    <h1>Lớp Anh Đạt</h1>
                     <div className="input-group">
-                        <input name="username" type="text" id="username" onChange={(e) => this.handleChange(e)} required/>
+                        <input name="username" type="text" id="username" onChange={(e) => this.handleChange(e)} autoComplete="Off" required/>
                         <label htmlFor="username">Username</label>
                     </div>
                     <div className="input-group">
-                        <input name="password" type="password" id="password" onChange={(e) => this.handleChange(e)} required/>
+                        <input name="password" type="password" id="password" onChange={(e) => this.handleChange(e)} autoComplete="Off" required/>
                         <label htmlFor="password">Password</label>
                     </div>
                     <button type="submit">Login</button>

@@ -1,0 +1,21 @@
+.search-box{
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-box label{
+    margin-right: 0.5rem;
+    font-size: 1.4rem;
+    user-select: none;
+}
+
+.search-box input{
+    margin-right: 0.5rem;
+    outline: none;
+}
+
+.search-box button{
+    padding: 0rem 1rem;
+}

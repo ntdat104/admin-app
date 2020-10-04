@@ -1,23 +1,43 @@
-import React, { Component } from 'react';
-import './App.css';
-import Login from './components/Login/Login';
+import React, { Component } from "react";
+import Login from "./components/Login";
+import Admin from "./components/Admin";
+import "./App.css";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      login: false,
+      login: true,
+    };
+  }
+
+  //* Login
+  checkLogin() {
+    if (this.state.login) {
+      return <Admin />;
+    }
+    return <Login checkAdmin={(account) => this.checkAdmin(account)} />;
+  }
+
+  checkAdmin(account) {
+    if (account.username !== "admin") {
+      alert("Tài khoản không tồn tại!");
+    } else if (account.password !== "abc123") {
+      alert("Sai mật khẩu!");
+    } else {
+      alert("Đăng nhập thành công!");
+      this.setState({
+        login: true,
+      });
     }
   }
 
-  checkLogin(account){}
-  
   render() {
     return (
       <div className="App">
-        <Login />
+        {this.checkLogin()}
       </div>
-    );
+    )
   }
 }
 

@@ -1,0 +1,48 @@
+.admin{
+    padding: 2rem 2rem;
+}
+
+.admin h1{
+    margin-bottom: 2rem;
+    color: red;
+    font-size: 3rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+.add_button{
+    display: block;
+    width: 100%;
+    padding: 0.5rem 0;
+    margin-bottom: 2rem;
+    cursor: pointer;
+}
+
+.admin_table{
+    width: 100%;
+    margin-bottom: 3rem;
+}
+
+.admin_table, .admin_table th, .admin_table td{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.admin_table th, .admin_table td{
+    padding: 10px;
+    text-align: left;
+    font-size: 1.4rem;
+}
+
+.admin_table th{
+    font-weight: bold;
+}
+
+.admin_table button{
+    padding: 0.5rem 1rem;
+    margin-right: 1rem;
+}
+
+.admin_table button:last-child{
+    margin-right: 0;
+}
