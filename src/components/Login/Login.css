@@ -1,0 +1,78 @@
+.login{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f12711;
+    background: -webkit-linear-gradient(to right, #f5af19, #f12711);
+    background: linear-gradient(to right, #f5af19, #f12711);
+}
+
+.login_form{
+    background-color: white;
+    padding: 6rem 3rem;
+    border-radius: 1rem;
+    box-shadow: 0.2px 0.2px 6px black;
+}
+
+.login_form h1{
+    text-align: center;
+    user-select: none;
+    text-shadow: 0.2px 0.2px 0.2px black;
+    font-size: 2.2rem;
+    font-weight: bold;
+}
+
+.input-group{
+    margin: 3rem 0px;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 20rem;
+}
+
+.input-group input{
+    border: none;
+    outline: none;
+    border-bottom: 1px solid dodgerblue;
+    padding: 4px 0px;
+    width: 100%;
+}
+
+.input-group label{
+    position: absolute;
+    left: 0px;
+    top: 3px;
+    font-size: 1.4rem;
+    pointer-events: none;
+    transition: all 0.2s;
+    color: gray;
+}
+
+.input-group input:focus + label{
+    top: -1.4rem;
+    font-size: 1.3rem;
+    color: dodgerblue;
+}
+
+.input-group input:valid + label{
+    top: -1.4rem;
+    font-size: 1.3rem;
+    color: dodgerblue;
+}
+
+.login_form button{
+    background-color: dodgerblue;
+    border: none;
+    color: white;
+    padding: 0.8rem 0;
+    border-radius: 2rem;
+    width: 100%;
+    font-weight: bold;
+    font-size: 1.5rem;
+    outline: none;
+    cursor: pointer;
+    margin: 1rem 0px;
+}
