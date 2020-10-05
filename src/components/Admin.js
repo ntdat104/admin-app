@@ -104,7 +104,9 @@ class Admin extends Component {
     addStudent(student){
         const data = firebase.database().ref("students/" + student.username);
         data.set(student);
-        console.log(student);
+        this.setState({
+            addStatus: !this.state.addStatus
+        });
     }
 
     //* EditForm

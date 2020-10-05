@@ -12,7 +12,7 @@ class App extends Component {
   }
 
   //* Login
-  checkLogin() {
+  checkLoginStatus() {
     if (this.state.login) {
       return <Admin />;
     }
@@ -35,7 +35,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {this.checkLogin()}
+        {this.checkLoginStatus()}
       </div>
     )
   }

@@ -31,7 +31,6 @@ class EditForm extends Component {
     }
     
     render() {
-        // console.log(this.props.studentEditing);
         return (
             <form className="edit_form" onSubmit={(e) => this.handleSubmit(e)}>
                 <h1>Sửa học sinh</h1>
