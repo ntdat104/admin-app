@@ -13,8 +13,8 @@ class RenderStudent extends Component {
                 <td>{this.props.student.count}</td>
                 <td>{this.props.student.mark}</td>
                 <td>
-                    <button>Sửa</button>
-                    <button>Xóa</button>
+                    <button onClick={() => this.props.changeEditStatus()}>Sửa</button>
+                    <button onClick={() => this.props.removeStudent()}>Xóa</button>
                 </td>
             </tr>
         );

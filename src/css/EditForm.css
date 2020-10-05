@@ -1,0 +1,50 @@
+.edit_form{
+    width: 30rem;
+    padding: 2rem;
+    border: 1px solid green;
+    border-radius: 0.5rem;
+    display: inline-block;
+}
+
+.edit_form h1{
+    font-size: 2.4rem;
+    color: green;
+    user-select: none;
+}
+
+.edit_form div{
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.edit_form div label{
+    font-size: 1.4rem;
+    color: green;
+    display: inline-block;
+    width: 8rem;
+    user-select: none;
+}
+
+.edit_form div input, .edit_form div select{
+    flex-grow: 1;
+    padding: 0.2rem 0rem 0.2rem 0.5rem;
+    outline: none;
+    border: 1px solid green;
+    border-radius: 0.2rem;
+}
+
+.edit_form div:last-child{
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.edit_form div button{
+    padding: 0.5rem 1rem;
+    margin-right: 1rem;
+}
+
+.edit_form div button:last-child{
+    margin-right: 0;
+}

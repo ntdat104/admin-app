@@ -4,14 +4,24 @@ import * as firebase from "firebase";
 import "../css/Admin.css";
 import SearchBox from './SearchBox';
 import RenderStudent from './RenderStudent';
+import AddForm from './AddForm';
+import EditForm from './EditForm';
 
 class Admin extends Component {
     constructor(props) {
         super(props);
         this.state = {
             FirebaseConfig: FirebaseConfig,
+
             searchStatus: false,
-            userSearch: null
+            userSearch: null,
+
+            addStatus: false,
+
+            editStatus: false,
+            studentEditing: null,
+
+            removeStatus: false,
         }
     }
     
@@ -59,6 +69,8 @@ class Admin extends Component {
                     key={index}
                     stt={index + 1}
                     student={student}
+                    changeEditStatus={() => this.changeEditStatus(student)}
+                    removeStudent={() => this.removeStudent(student)}
                 />
             ))
         }
@@ -69,9 +81,59 @@ class Admin extends Component {
                     key={index}
                     stt={index + 1}
                     student={student}
+                    changeEditStatus={() => this.changeEditStatus(student)}
+                    removeStudent={() => this.removeStudent(student)}
                 />
             ))
         }
+    }
+
+    //* AddForm
+    changeAddStatus(){
+        this.setState({
+            addStatus: !this.state.addStatus
+        });
+    }
+
+    checkAddStatus(){
+        if(this.state.addStatus){
+            return <AddForm addStudent={(student) => this.addStudent(student)}/>
+        }
+    }
+
+    addStudent(student){
+        const data = firebase.database().ref("students/" + student.username);
+        data.set(student);
+        console.log(student);
+    }
+
+    //* EditForm
+    changeEditStatus(student){
+        this.setState({
+            editStatus: !this.state.editStatus,
+            studentEditing: student
+        });
+    }
+
+    checkEditStatus(){
+        if(this.state.editStatus){
+            return <EditForm studentEditing={this.state.studentEditing} editStudent={(student) => this.editStudent(student)}/>
+        }
+    }
+
+    editStudent(student){
+        const data = firebase.database().ref("students/" + student.username);
+        data.set(student);
+        this.setState({
+            editStatus: !this.state.editStatus,
+            studentEditing: null
+        });
+    }
+
+    //* RemoveButton
+    removeStudent(student){
+        const data = firebase.database().ref("students");
+        data.child(student.username).remove();
     }
 
     render() {
@@ -79,7 +141,7 @@ class Admin extends Component {
             <div className="admin">
                 <h1>Welcome to admin</h1>
                 <SearchBox getUsernameSearch={(username) => this.getUsernameSearch(username)}/>
-                <button className="add_button">Thêm mới</button>
+                <button className="add_button" onClick={() => this.changeAddStatus()}>Thêm mới</button>
                 <table className="admin_table">
                     <tbody>
                         <tr>
@@ -96,6 +158,8 @@ class Admin extends Component {
                         {this.mapStudent()}
                     </tbody>
                 </table>
+                {this.checkAddStatus()}
+                {this.checkEditStatus()}
             </div>
         );
     }
