@@ -36,7 +36,7 @@ class EditForm extends Component {
                 <h1>Sửa học sinh</h1>
                 <div className="form_group">
                     <label htmlFor="username">Username</label>
-                    <input name="username" defaultValue={this.props.studentEditing.username} id="username" type="text" onChange={(e) => this.handleChange(e)} autoComplete="off" required/> 
+                    <input name="username" defaultValue={this.props.studentEditing.username} id="username" type="text" onChange={(e) => this.handleChange(e)} autoComplete="off" disabled required/> 
                 </div>
                 <div className="form_group">
                     <label htmlFor="password">Password</label>
